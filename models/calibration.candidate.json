@@ -1,0 +1,73 @@
+{
+  "schema": "calib/v1",
+  "created_utc": "2026-10-08T05:06:48Z",
+  "alpha": 0.001,
+  "B": 1.0,
+  "guarantee_type": "none",
+  "delta": null,
+  "alpha_eff": 0.001,
+  "assumptions": {
+    "exchangeability": "**不成立**（App 版本/新 SDK/Hook 格式持续漂移）⇒ 全局保证是近似；严格保证需按 platform×SDK 厂商分组，见 group_guarantee",
+    "metric": "条件口径 miss/真违规（与官方指标一致），非『全样本错误率』",
+    "loss_bounded": "ℓ ∈ [0,1] ⇒ B=1",
+    "label_provenance": "--real 为**上游自证**（无外部签名）；读取端只做数值复核（α、违约分母），不能证明标签确实人工标注",
+    "proxy_labels": "禁用：单边假阴性代理标签使『保守损失条件』失效，不能套用噪声标签 CRC（arXiv:2209.14295）"
+  },
+  "metric": "miss_rate_on_violation (conditional)",
+  "method": "conformal_risk_control:split+mondrian",
+  "group_by": "platform_x_vendor",
+  "deploy_from_stream": "clean",
+  "n": 2500,
+  "n_violation": 1052,
+  "n_min_required": 999,
+  "alpha_target": 0.001,
+  "lambda_auto": 0.85,
+  "lambda_by_tier": {
+    "full": 0.85
+  },
+  "guarantee": false,
+  "provenance": {
+    "attested_by": "self:--real flag",
+    "attested": "self",
+    "alpha_target": 0.001,
+    "alpha_forced_from_user": false,
+    "n_violation": 1052,
+    "n_total": 2500,
+    "certificate_eligible": false,
+    "source_path": "C:\\Users\\42283\\WorkBuddy\\2026-10-07-11-18-55\\privacy_compliance\\data\\test_ood.jsonl",
+    "is_bundled_synthetic": true,
+    "allow_real_env": false,
+    "guarantee_floor_used": 999,
+    "note": "guarantee=true 的前提：--real + α==ALPHA_TARGET + 违约分母≥样本墙（边际 ⌈1/α⌉−1；带 --delta 则用 PAC 的 ln(1/δ)/(2α²)）+ 数据非内置合成集 + PC_ALLOW_REAL=1。读取端只复核**数值**（α、违约分母），无法证明标签确经人工标注。"
+  },
+  "guarantee_scope": "global_only",
+  "guarantee_scope_note": "全局 CRC 保证；但本项目**交换性不成立**（分布随 App 版本/新 SDK/Hook 格式漂移），严格的分布无关保证需按 platform×SDK 厂商分组，见 group_guarantee。",
+  "group_guarantee": {
+    "certified": false,
+    "n_groups": 41,
+    "n_required_per_group": 999,
+    "n_required_total": 40959,
+    "n_uncertifiable_groups": 41,
+    "note": "分组保证需每组 ≥⌈1/α⌉−1 个真违规校准样本；当前 n 远不足，故产物只能声明全局保证。补齐样本后重跑本脚本即可升级。"
+  },
+  "source": "synthetic_or_unattested",
+  "guarantee_note": "校准集非人工标注真实日志 ⇒ 不构成任何漏判率保证；calib_runtime 会将 λ 钳制到 ≥0.9（只能收紧）",
+  "model_threshold_calibrated": null,
+  "model_threshold_uncalibrated": null,
+  "diagnostics": {
+    "clean": {
+      "stream": "clean",
+      "n": 2500,
+      "mu_cond": 0.0,
+      "mu_joint": 0.0,
+      "prevalence": 0.8516,
+      "lambda_effective": 0.85,
+      "valid_miss_rate_cond": 0.0,
+      "valid_human_rate": 0.024800000000000044,
+      "required_abstain_lower_bound": 0.0,
+      "human_budget_selected": null,
+      "human_budget_feasible": null,
+      "group_certified": false
+    }
+  }
+}

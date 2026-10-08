@@ -1,0 +1,100 @@
+model=jhu-clsp/mmBERT-small n_train=8000 test_n=20000
+
+                                 precision    recall  f1-score   support
+
+                NONE||COMPLIANT       1.00      1.00      1.00       218
+               PHONE||COMPLIANT       0.00      0.00      0.00       219
+                 PHONE||WARNING       0.00      0.00      0.00       218
+              PHONE||NO_CONSENT       0.56      0.68      0.61       217
+           PHONE||NOT_DISCLOSED       0.54      0.15      0.23       217
+            PHONE||OVER_COLLECT       0.22      0.71      0.33       217
+      PHONE||PLAINTEXT_TRANSMIT       0.35      0.41      0.38       217
+                 PHONE||NO_MASK       1.00      1.00      1.00       217
+             ID_CARD||COMPLIANT       0.08      0.00      0.01       218
+               ID_CARD||WARNING       0.32      0.35      0.33       217
+            ID_CARD||NO_CONSENT       0.60      0.59      0.59       217
+         ID_CARD||NOT_DISCLOSED       0.00      0.00      0.00       217
+          ID_CARD||OVER_COLLECT       0.20      0.06      0.09       217
+    ID_CARD||PLAINTEXT_TRANSMIT       0.22      0.80      0.35       217
+               ID_CARD||NO_MASK       1.00      1.00      1.00       217
+           BANK_CARD||COMPLIANT       0.00      0.00      0.00       217
+             BANK_CARD||WARNING       0.54      0.10      0.17       218
+          BANK_CARD||NO_CONSENT       0.78      0.64      0.70       218
+       BANK_CARD||NOT_DISCLOSED       0.54      0.14      0.22       217
+        BANK_CARD||OVER_COLLECT       0.23      0.57      0.32       217
+  BANK_CARD||PLAINTEXT_TRANSMIT       0.33      0.74      0.46       217
+             BANK_CARD||NO_MASK       1.00      1.00      1.00       218
+           DEVICE_ID||COMPLIANT       0.14      0.14      0.14       217
+             DEVICE_ID||WARNING       0.00      0.00      0.00       217
+          DEVICE_ID||NO_CONSENT       0.40      0.66      0.50       217
+       DEVICE_ID||NOT_DISCLOSED       0.22      0.28      0.25       218
+        DEVICE_ID||OVER_COLLECT       0.19      0.35      0.25       217
+  DEVICE_ID||PLAINTEXT_TRANSMIT       0.58      0.15      0.24       219
+             DEVICE_ID||NO_MASK       0.99      1.00      1.00       217
+               EMAIL||COMPLIANT       0.17      0.13      0.15       217
+                 EMAIL||WARNING       0.24      0.07      0.11       217
+              EMAIL||NO_CONSENT       0.75      0.54      0.63       218
+           EMAIL||NOT_DISCLOSED       0.21      0.52      0.30       220
+            EMAIL||OVER_COLLECT       0.21      0.36      0.27       218
+      EMAIL||PLAINTEXT_TRANSMIT       0.48      0.07      0.12       218
+                 EMAIL||NO_MASK       1.00      1.00      1.00       217
+                NAME||COMPLIANT       0.00      0.00      0.00       217
+                  NAME||WARNING       0.42      0.09      0.14       218
+               NAME||NO_CONSENT       0.88      0.54      0.67       218
+            NAME||NOT_DISCLOSED       0.29      0.58      0.39       217
+             NAME||OVER_COLLECT       0.00      0.00      0.00       217
+       NAME||PLAINTEXT_TRANSMIT       0.27      0.84      0.41       217
+                  NAME||NO_MASK       1.00      1.00      1.00       217
+         EXACT_IMAGE||COMPLIANT       0.28      0.67      0.40       218
+           EXACT_IMAGE||WARNING       0.00      0.00      0.00       217
+        EXACT_IMAGE||NO_CONSENT       0.80      0.65      0.71       217
+     EXACT_IMAGE||NOT_DISCLOSED       0.48      0.86      0.62       218
+      EXACT_IMAGE||OVER_COLLECT       0.40      0.23      0.29       217
+EXACT_IMAGE||PLAINTEXT_TRANSMIT       0.56      0.23      0.33       217
+           EXACT_IMAGE||NO_MASK       1.00      1.00      1.00       217
+              HEALTH||COMPLIANT       0.00      0.00      0.00       218
+                HEALTH||WARNING       0.52      0.20      0.29       218
+             HEALTH||NO_CONSENT       0.60      0.80      0.68       217
+          HEALTH||NOT_DISCLOSED       0.57      0.04      0.07       218
+           HEALTH||OVER_COLLECT       0.25      0.88      0.39       217
+     HEALTH||PLAINTEXT_TRANSMIT       0.35      0.24      0.28       217
+                HEALTH||NO_MASK       1.00      1.00      1.00       218
+            LOCATION||COMPLIANT       0.28      0.32      0.30       218
+              LOCATION||WARNING       0.24      0.28      0.26       218
+           LOCATION||NO_CONSENT       0.50      0.82      0.62       217
+        LOCATION||NOT_DISCLOSED       0.42      0.22      0.29       218
+         LOCATION||OVER_COLLECT       0.33      0.30      0.32       217
+   LOCATION||PLAINTEXT_TRANSMIT       0.33      0.21      0.25       217
+              LOCATION||NO_MASK       1.00      1.00      1.00       217
+                 SMS||COMPLIANT       0.25      0.35      0.29       217
+                   SMS||WARNING       0.53      0.33      0.40       217
+                SMS||NO_CONSENT       0.45      0.81      0.58       217
+             SMS||NOT_DISCLOSED       0.68      0.67      0.67       217
+              SMS||OVER_COLLECT       0.35      0.35      0.35       217
+        SMS||PLAINTEXT_TRANSMIT       0.40      0.09      0.14       218
+                   SMS||NO_MASK       1.00      1.00      1.00       217
+            CONTACTS||COMPLIANT       0.24      0.29      0.27       217
+              CONTACTS||WARNING       0.19      0.07      0.10       217
+           CONTACTS||NO_CONSENT       0.57      0.66      0.61       217
+        CONTACTS||NOT_DISCLOSED       0.35      0.71      0.47       217
+         CONTACTS||OVER_COLLECT       0.30      0.25      0.27       218
+   CONTACTS||PLAINTEXT_TRANSMIT       0.33      0.13      0.19       217
+              CONTACTS||NO_MASK       1.00      1.00      1.00       217
+           BIOMETRIC||COMPLIANT       0.27      0.34      0.30       217
+             BIOMETRIC||WARNING       0.39      0.15      0.22       217
+          BIOMETRIC||NO_CONSENT       0.86      0.48      0.62       217
+       BIOMETRIC||NOT_DISCLOSED       0.47      0.65      0.55       217
+        BIOMETRIC||OVER_COLLECT       0.33      0.67      0.45       217
+  BIOMETRIC||PLAINTEXT_TRANSMIT       0.29      0.11      0.16       219
+             BIOMETRIC||NO_MASK       1.00      1.00      1.00       217
+          CAMERA_MIC||COMPLIANT       0.30      0.25      0.27       217
+            CAMERA_MIC||WARNING       0.36      0.43      0.39       217
+         CAMERA_MIC||NO_CONSENT       0.57      0.55      0.56       217
+      CAMERA_MIC||NOT_DISCLOSED       0.00      0.00      0.00       220
+       CAMERA_MIC||OVER_COLLECT       0.28      0.65      0.39       217
+ CAMERA_MIC||PLAINTEXT_TRANSMIT       0.50      0.36      0.42       217
+            CAMERA_MIC||NO_MASK       1.00      1.00      1.00       218
+
+                       accuracy                           0.45     20000
+                      macro avg       0.45      0.45      0.41     20000
+                   weighted avg       0.45      0.45      0.41     20000

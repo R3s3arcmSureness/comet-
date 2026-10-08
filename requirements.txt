@@ -1,0 +1,18 @@
+# 运行期依赖（隐私合规裁决系统）
+#
+# 说明：
+#   - 纯 CPU 即可运行；**不需要 GPU**。
+#   - 生产 L3 后端为 l3-struct（sklearn 的 LogisticRegression + HistGradientBoosting），
+#     只依赖 numpy / scikit-learn。
+#   - torch / transformers **不在此列表中**：它们仅用于可选的 mmBERT 微调后端
+#     （`predict.TransformerBackend`，惰性导入）。未安装时系统会自动降级并打印一行提示，
+#     判定逻辑与结果不受影响（见 README「后端优先级」）。
+#
+# 版本下限依据：
+#   - HistGradientBoostingClassifier 的 `categorical_features` 参数需要 scikit-learn ≥ 1.2（原 1.0，
+#     但 1.2 起才对原生类别特征给出稳定行为），故下限取 1.2。
+#   - numpy 2.x 与 scikit-learn ≥ 1.4 兼容；如你的服务器只能用 numpy 1.x（如系统包管理器锁定），
+#     建议 numpy>=1.24,<2 且 scikit-learn>=1.2,<1.4。
+
+numpy>=1.24
+scikit-learn>=1.2

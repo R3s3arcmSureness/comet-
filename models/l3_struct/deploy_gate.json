@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "kind": "l3_struct_hierarchical",
+  "test_f1": 0.9895,
+  "ood_f1": 0.9881,
+  "baseline_test": 0.8414,
+  "baseline_ood": 0.7889,
+  "n_train": 100000,
+  "created_utc": "2026-10-08T04:25:41Z"
+}
